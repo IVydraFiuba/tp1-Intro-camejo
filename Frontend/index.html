@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Meta datos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tp1-IntroSoft</title>
+    
+    <!-- Link a bootstrap CSS -->
+    <link rel="stylesheet" href="Frameworks/Bootstrap/css/bootstrap.min.css">
+    <!-- link a DataTables CSS -->
+    <link rel="stylesheet" href="Frameworks/DataTables/datatables.min.css">
+    
+
+    <!-- PRUEBO SI Es poco css lo dejo O SI NO LO SACO -->
+    <style>
+        .centrado{
+            text-align: center !important;
+            vertical-align: middle !important;
+            }
+        body{
+            background: #D3CCE3;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+    </style>
+
+
+</head>
+<body > 
+    <div class="container my-4">
+        <div class="col-md-12">
+            <table id="Tabla_insumos" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="centrado">Id</th>
+                        <th class="centrado">Codigo</th>
+                        <th class="centrado">Descripcion</th>
+                        <th class="centrado">Presentacion</th>
+                        <th class="centrado">Rendimiento(Det/kit)(Test/kit)</th>
+                    </tr>
+                </thead>
+                <tbody id="Data_insumos">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-12 col-md-10 col-lg-6 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Cargar insumos</h2>
+                        <form onsubmit="cargar_nuevo_insumo(event)">
+                            <div class="mb-3">
+                                <label for="codigo" class="form-label">Codigo</label>
+                                <input type="number" class="form-control" name="codigo" placeholder="8056692190" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="descripcion" class="form-label">Descripcion</label>
+                                <input type="text" class="form-control" name="descripcion" placeholder="ALB BCG Gen.2, 750Tests cobas c503">
+                            </div>
+                            <div class="mb-3">
+                                <label for="presentacion" class="form-label">Presentacion</label>
+                                <input type="text" class="form-control" name="presentacion" placeholder="2 unidad (cassette)" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="rendimiento" class="form-label">Rendimiento</label>
+                                <input type="number" class="form-control" name="rendimiento" placeholder="1100" required>
+                            </div>
+                            <button type="submit" class="btn btn-success">Cargar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- link a bootstrap JS -->
+    <script src="Frameworks/Bootstrap/js/bootstrap.min.js"></script>
+    <!-- link a jquery -->
+    <script src="Frameworks/jquery-3.7.1.min.js"></script>
+    <!-- link a DataTables JS-->
+    <script src="Frameworks/DataTables/datatables.min.js"></script>
+    
+    <!-- link a JS propio -->
+    <script src="main.js"></script>
+</body>
+</html>
