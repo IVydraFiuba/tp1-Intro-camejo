@@ -36,7 +36,6 @@ def data_insumos():
 def nuevo_insumo():
     try:
         data_formulario=request.json
-
         codigo_ingresado=data_formulario.get("codigo")
         descripcion_ingresada=data_formulario.get("descripcion")
         presentacion_ingresada=data_formulario.get("presentacion")
@@ -47,11 +46,12 @@ def nuevo_insumo():
         db.session.add(nuevo_insumo)
         db.session.commit()
         #Una buena practica es retornar lo que registramos
-        return jsonify({'Insumo': {'Id':nuevo_insumo.id , 'Codigo':nuevo_insumo.codigo, 'Descripcion':nuevo_insumo.descripcion, 'Presentacion': nuevo_insumo.presentacion, 'Rendimiento': nuevo_insumo.rendimiento}})    
+        return jsonify({'success':True,'Insumo': {'Id':nuevo_insumo.id , 'Codigo':nuevo_insumo.codigo, 'Descripcion':nuevo_insumo.descripcion, 'Presentacion': nuevo_insumo.presentacion, 'Rendimiento': nuevo_insumo.rendimiento}})    
     
     except Exception as error:
         print(error)
-        return jsonify({'message':'No se pudo cargar el insumo'}),500
+        db.session.rollback()
+        return jsonify({'success':False,'message':'No se pudo cargar el insumo'}),500
 
 
 if __name__ == '__main__':
